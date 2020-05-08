@@ -1,0 +1,24 @@
+import sys
+sys.setrecursionlimit(1500)
+
+#rooms는 딕셔너리
+def find_empty_room(x,rooms):
+    if x not in rooms:
+        rooms[x] = x+1   #다음 빈방 좌표
+        return x
+    p=find_empty_room(rooms[x],rooms)
+    rooms[x]=p+1
+    return p
+        
+        
+        
+def solution(k,room_number):
+    rooms=dict()
+    answer=[]
+    for each_room in room_number:
+        empty_room=find_empty_room(each_room, rooms)
+        answer.append(empty_room)
+    return answer
+   
+   
+#출처 - https://post.naver.com/viewer/postView.nhn?volumeNo=27889711&memberNo=33264526
