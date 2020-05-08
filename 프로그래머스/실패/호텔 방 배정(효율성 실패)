@@ -1,0 +1,21 @@
+def next(allroom, user, want, visit):
+    while 1:
+        if visit[want]==0:
+            visit[want]=user
+            allroom[user]=want
+            break
+        want += 1
+
+
+    return allroom
+
+def solution(k, room_number):
+    allroom=[0 for i in range(len(room_number)+1)]    #방 갯수
+    visit=[0 for i in range(k+1)]
+    for i in range(len(room_number)):
+        allroom=next(allroom, i+1, room_number[i], visit)
+
+    allroom.pop(0)
+    answer = allroom
+ 
+    return answer
