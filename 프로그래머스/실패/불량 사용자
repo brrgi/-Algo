@@ -1,0 +1,39 @@
+all = []
+giri = [[], [], [], [], [], [], [], [], []]
+
+
+def comp(a, b, leng):
+    for i in range(leng):
+        if a[i] == b[i] or b[i] == '*':
+            continue
+        else:
+            return 0
+    return a
+
+
+def solution(user_id, banned_id):
+    # 길이 별 정렬
+    for i in user_id:
+        giri[len(i)].append(i)
+    #새로운 배열 만들고 밴된거랑 기존 것들 비교해서 가능하면 newone에 넣기
+    newone=[[] for i in range(len(banned_id))]
+    for i in range(len(banned_id)):
+        for j in giri[len(banned_id[i])]:
+            if (comp(j, banned_id[i], len(banned_id[i])) != 0) and (comp(j, banned_id[i], len(banned_id[i])) not in newone[i]):
+                newone[i].append(comp(j, banned_id[i], len(banned_id[i])))
+
+    token=0
+    answer=1
+    # print(newone)
+    newone = list(set(map(tuple, newone)))
+    # print(newone)
+    for i in range(len(newone)):
+        if len(newone[i])==0:
+            answer*=1
+        else:
+            token=1
+            answer*=len(newone[i])
+    if token==0:
+        answer=0
+    # print(answer)
+    return answer
