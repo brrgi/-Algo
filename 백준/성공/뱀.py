@@ -39,6 +39,7 @@ while 1:
         earthworm.append([y,x])
         earthworm.popleft()
     result+=1
+    
     #Step3 방향 전환
     if result in second:
         second.popleft()
