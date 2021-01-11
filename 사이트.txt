@@ -1,7 +1,0 @@
-https://www.geeksforgeeks.org/python-plotting-charts-in-excel-sheet-with-data-tools-using-xlsxwriter-module-set-1/
-
-https://www.google.com/search?q=scatter+chart+openpyxl+color&sxsrf=ACYBGNRuI0lHE3xvqcRBaFRTL4xEKK8Exg:1578903876799&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiv9Nelk4DnAhVrKqYKHX_lBK0Q_AUoAXoECAwQAw&biw=2560&bih=1249#imgrc=mBoZA_mPFgBvlM
-
-https://openpyxl.readthedocs.io/en/stable/charts/line.html
-
-https://dejavuqa.tistory.com/25
