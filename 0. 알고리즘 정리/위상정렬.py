@@ -1,52 +1,39 @@
-"""
-주어진 그래프의 인접행렬을 바탕으로, 위상 정렬을 한다
-입력: 그래프의 인접행렬
-출력: 위상 정렬의 순서(같은 순서일 경우 아무거나 뽑음)
-알고리즘
-    1. 모든 정점의 진입 차수를 계산
-    2. 진입 차수가 0인 정점을 스택에 삽입
-    3. 위상 순서를 생성
-"""
-adj_mat = [[0, 0, 1, 1, 0, 0],
-           [0, 0, 0, 1, 1, 0],
-           [0, 0, 0, 1, 0, 1],
-           [0, 0, 0, 0, 0, 1],
-           [0, 0, 0, 0, 0, 1],
-           [0, 0, 0, 0, 0, 0]]
+num_student, num_compare = map(int, input().split())
+graph_list = []
+student_list = [[] for i in range(num_student + 1)]
+indegree = [0 for i in range(num_student + 1)]
+queue = []
+result = []
 
+#Graph Information
 
-def topological_sort(adj_mat):
-    in_degrees = []
-    stack = []
-    answer = []
+for i in range(num_compare):
+    graph = list(map(int, input().split()))
+    graph_list.append(graph)
 
-    for i in range(len(adj_mat)):
-        temp = 0
-        for col in range(len(adj_mat)):
-            temp += adj_mat[col][i]
-        in_degrees.append(temp)
+#Node & Indegree Information
 
-    print("in_degrees: ", in_degrees)
+for [i, j] in graph_list:
+    student_list[i].append(j)
+    indegree[j] += 1
 
-    for i in range(len(in_degrees)):
-        if in_degrees[i] == 0:
-            stack.append(i)
+#Make First Queue
 
-    print("stack: ", stack)
+for i in range(1, num_student + 1):
+    if indegree[i] == 0:
+        queue.append(i)
 
-    while stack:
-        node = stack.pop()
-        answer.append(node)
-        print("pop된 노드: ", node)
+#Make Topological Sort Loop
 
-        for i in range(len(adj_mat[node])):
-            if adj_mat[node][i] != 0:
-                in_degrees[i] -= 1
-                if in_degrees[i] == 0:
-                    print("진입차수 0이 된 노드: ", i)
-                    stack.append(i)
+while queue:
+    for i in queue:
+        temp = i
+        queue.remove(i)
+        result.append(temp)
+        for j in student_list[temp]:
+            indegree[j] -= 1
+            if indegree[j] == 0:
+                queue.append(j)
 
-    print("answer: ", answer)
-
-
-print(topological_sort(adj_mat))
+for i in result:
+    print(i, end=' ')
