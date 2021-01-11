@@ -1,4 +1,8 @@
 class Node(object):
+    """
+    A node that consists of a trie.
+    """
+
     def __init__(self, key, data=None):
         self.key = key
         self.data = data
