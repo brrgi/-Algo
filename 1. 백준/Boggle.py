@@ -46,7 +46,7 @@ def dfs(row, col, now, address, visit):
 
     visit[row][col] = 1
     print("멈", row, col, now)
-    if now in wordSet:      #
+    if now in wordSet:      #생각해보니 sum summmmmm이 있는 경우 sum만을 추출하고 뒤에 있는 summmmmm을 검색할 수 없게 짰다. ㅜㅜ
         newSet.add(now)
         return True
     if t.search(maps[row][col], address)==False:
