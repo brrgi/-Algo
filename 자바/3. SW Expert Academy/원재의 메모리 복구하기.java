@@ -5,11 +5,11 @@ class Solution {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         int a = Integer.parseInt(in.readLine());
         for (int i = 0; i < a; i++) {
-            char first = '0';
+            bool first = false;
             int check = 0;
             String b = in.readLine();
             for (int j = 0; j < b.length(); j++) {
-                if (b.charAt(j) != first) {
+                if ((b.charAt(j)-'0') != first) {
                     check++;
                     if (first == '0') first = '1';
                     else first = '0';
