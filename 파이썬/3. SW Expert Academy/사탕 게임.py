@@ -3,22 +3,21 @@ maps=[]
 colors=['C', 'P', 'Z', 'Y']
 dx=[1,-1]
 dy=[1,-1]
-
-for i in range(a):      #지도 만들기
+for i in range(a):
     t=list(input())
     maps.append(t)
 
 
-maxVal=1                #최소 1
+maxVal=1
 
 for i in range(a):
     for j in range(a):
-
-        for x in dx:                                    # 가로 바꾸기
+        for x in dx:
             newCol=j+x
             if 0<=newCol<a:
+                # print("TL")
                 maps[i][j],maps[i][newCol]=maps[i][newCol],maps[i][j]
-                for e in range(a):                      # 가로 MAX 값 구하기
+                for e in range(a):  # 가로
                     initVal = 1
                     for r in range(a - 1):
                         if maps[e][r] == maps[e][r + 1]:
@@ -30,7 +29,7 @@ for i in range(a):
                         if initVal > maxVal:
                             maxVal = initVal
 
-                for e in range(a):                      # 세로 MAX 값 구하기
+                for e in range(a):  # 세로
                     initVal = 1
                     for r in range(a - 1):
                         if maps[r][e] == maps[r + 1][e]:
@@ -43,11 +42,12 @@ for i in range(a):
                             maxVal = initVal
                 maps[i][j],maps[i][newCol]=maps[i][newCol],maps[i][j]
 
-        for y in dx:                                    # 세로 바꾸기
+        for y in dx:
             newRow = i + y
             if 0 <= newRow < a:
+                # print("TL")
                 maps[i][j], maps[newRow][j] = maps[newRow][j], maps[i][j]
-                for e in range(a - 1):                  # 가로 MAX 값 구하기
+                for e in range(a - 1):  # 가로
                     initVal = 1
                     for r in range(a - 1):
                         if maps[e][r] == maps[e][r + 1]:
@@ -59,7 +59,7 @@ for i in range(a):
                         if initVal > maxVal:
                             maxVal = initVal
 
-                for e in range(a - 1):                  # 세로 MAX 값 구하기
+                for e in range(a - 1):  # 세로
                     initVal = 1
                     for r in range(a - 1):
                         if maps[r][e] == maps[r + 1][e]:
@@ -71,5 +71,6 @@ for i in range(a):
                         if initVal > maxVal:
                             maxVal = initVal
                 maps[i][j], maps[newRow][j] = maps[newRow][j], maps[i][j]
+
 
 print(maxVal)
