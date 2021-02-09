@@ -14,6 +14,6 @@ for i in range(a):
             else:
                 stack.append((t[i],i))
                 break
-
+print(stack)
 for i in result:
     print(i, end=' ')
