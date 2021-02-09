@@ -11,7 +11,7 @@ for i in range(10):
 for i in range(26):
     asci.append(i+65)
     asci.append(i+97)
-asci.sort()
+
 for i in b:
     bAsci.append(asci.index(ord(i)))
 
