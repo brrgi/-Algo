@@ -17,7 +17,9 @@ result=-1
 for comb in combs:
     how=0
     enemy=deepcopy(enem)
+    print(comb)
     while enemy:
+        print(enemy)
         remov=[]
         for i in comb:
             row=n
@@ -43,12 +45,16 @@ for comb in combs:
 
         for i in remov:
             enemy.remove(i)
+            print("보자")
             how+=1
         for i in range(len(enemy)):
             enemy[i][0]+=1
         for i in enemy[:]:
             if i[0]==n:
                 enemy.remove(i)
+                print("qkwk")
+        print(how)
+    print()
     if result<how:
         result=how
 print(result)

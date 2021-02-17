@@ -19,10 +19,10 @@ def bfs(val):
             zeroIndex = data.index('0')
             x = data[zeroIndex]
             temp = '`'
+
             if zeroIndex == 0:
                 make_string(data[:], temp, x, data[1])
                 make_string(data[:], temp, x, data[3])
-
             elif zeroIndex == 1:
                 make_string(data[:], temp, x, data[0])
                 make_string(data[:], temp, x, data[2])
@@ -72,6 +72,8 @@ for i in range(3):
 puzzle.add(first)
 queue.append(first)
 
+print("퍼즐임 : ", puzzle)     #set
+print("큐임 : ", queue)       #queue
 if perfectPuzzle in puzzle:
     print(0)
 else:
