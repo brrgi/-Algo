@@ -10,8 +10,9 @@ def prim(start_node, edges):
 
     connected_nodes = set(start_node)
     candidate_edge_list = adjacent_edges[start_node]
+    print("1",candidate_edge_list)
     heapify(candidate_edge_list)
-
+    print("2",candidate_edge_list)
     while candidate_edge_list:
         weight, n1, n2 = heappop(candidate_edge_list)
         if n2 not in connected_nodes:
