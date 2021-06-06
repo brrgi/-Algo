@@ -1,5 +1,7 @@
 import heapq
+import sys
 
+input=sys.stdin.readline
 a = int(input())
 left = []
 right = []
